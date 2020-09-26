@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController  
 public class HelloWorldController {
-	@RequestMapping("/") //map to the default starter page 
+	@RequestMapping("/") //map to the default starter link
 	public String hello()   
 	{  
 		return "Hello World";  
