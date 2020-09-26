@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# build package
+mvn clean package
+
+# run app, TODO: use "exec-maven-plugin"
+mvn exec:java -Dexec.mainClass=com.zabir.springboot.cms.Application
