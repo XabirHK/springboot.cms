@@ -1,0 +1,27 @@
+version: '3.0'
+
+services:
+  myapp:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.maven
+    image: myapp:latest
+    container_name: myapp
+    ports:
+      - 8080:8080
+      - 9443:8443
+    working_dir: "/workdir"
+    volumes:
+      - $HOME/.m2:/root/.m2
+      - $PWD:/workdir
+
+  mysqldb:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.mysql
+    image: myapp-mysql:latest
+    container_name: myapp-mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
