@@ -11,9 +11,9 @@ services:
       - 8080:8080
       - 9443:8443
     working_dir: "/workdir"
-    volumes:
-      - $HOME/.m2:/root/.m2
-      - $PWD:/workdir
+    # volumes:
+    # - $HOME/.m2:/root/.m2
+    #  - $PWD:/workdir
 
   mysqldb:
     build:

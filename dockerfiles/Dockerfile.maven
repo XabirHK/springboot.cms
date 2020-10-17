@@ -6,8 +6,11 @@ RUN mkdir -p /workdir
 
 # Repo path, $MAVEN_CONFIG=/root/.m2
 
+COPY . /workdir/
+
 EXPOSE 8080
 WORKDIR /workdir
+
 
 # Assumed source directory mounted to workdir
 CMD ["/bin/bash", "dockerfiles/runapp"]
