@@ -1,1 +1,2 @@
-USE cms;
+create database cms;
+use cms;
