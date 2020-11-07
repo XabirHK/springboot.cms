@@ -4,4 +4,4 @@ FROM mysql:8.0.21
 # Note: we must use a volume from the host machine (outside the container),
 # otherwise database data will be removed as soon as the container removed.
 
-
+COPY dockerfiles/dbinit.sql /docker-entrypoint-initdb.d/
