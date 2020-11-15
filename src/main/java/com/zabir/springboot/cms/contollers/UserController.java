@@ -15,7 +15,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("/add")
+	@PostMapping("user/add")
     public User addUser(User user) {
         return userService.saveUser(user);
 		//return "Add user";
@@ -41,12 +41,12 @@ public class UserController {
 //        return userService.getUserByName(name);
 //    }
 
-    @PutMapping(path = "/update")
+    @PutMapping("user/update")
     public User updateUser(User user) {
         return userService.updateUser(user);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("user/delete/{id}")
     public String deleteUser(@PathVariable int id) {
         return userService.deleteUser(id);
     }
