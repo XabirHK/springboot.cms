@@ -7,24 +7,18 @@ import org.springframework.web.bind.annotation.*;
 
 
 import com.zabir.springboot.cms.models.User;
-import com.zabir.springboot.cms.services.UserService;
+import com.zabir.springboot.cms.services.UserServiceImpl;
 
 @RestController
 public class UserController {
 	
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
 	
 	@PostMapping("user/add")
     public User addUser(User user) {
         return userService.saveUser(user);
-		//return "Add user";
     }
-
-//    @PostMapping("/users/addall")
-//    public List<User> addUsers(@RequestBody List<User> users) {
-//        return userService.saveUsers(users);
-//    }
 
     @GetMapping("/users")
     public List<User> findAllUsers() {
@@ -36,10 +30,6 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-//    @GetMapping("/user/{name}")
-//    public User findUserByName(@PathVariable String name) {
-//        return userService.getUserByName(name);
-//    }
 
     @PutMapping("user/update")
     public User updateUser(User user) {
@@ -50,4 +40,5 @@ public class UserController {
     public String deleteUser(@PathVariable int id) {
         return userService.deleteUser(id);
     }
+    
 }
