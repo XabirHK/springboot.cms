@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService{
     public User updateUser(User User) {
         User existingUser = userRepository.findById(User.getId()).orElse(null);
         
-        existingUser.setName(User.getUsername());
+        existingUser.setUsername(User.getUsername());
         existingUser.setEmail(User.getEmail());
         existingUser.setRoles(User.getRoles());
        

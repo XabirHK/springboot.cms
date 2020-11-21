@@ -1,5 +1,7 @@
 package com.zabir.springboot.cms.contollers;
 
+import java.io.Console;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
@@ -25,42 +27,47 @@ public class AuthController {
     @Autowired
     private UserValidator userValidator;
 
-    @GetMapping("/registration")
-    public String registration(Model model) {
+    @GetMapping("/signup")
+    public String signup(Model model) {
+    	System.out.println("DhukseRegGet");
         model.addAttribute("userForm", new User());
-
-        return "registration";
+        
+        return "/signup";
     }
 
-    @PostMapping("/registration")
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
-        userValidator.validate(userForm, bindingResult);
-
+    @PostMapping("/signup")
+    public String signup(User user, BindingResult bindingResult) {
+    	System.out.println("DhukseRegPost");
+        userValidator.validate(user, bindingResult);
+        System.out.println("Dhukse");
         if (bindingResult.hasErrors()) {
-            return "registration";
+        	System.out.println("Sign up error dhukse");
+            return "/signup";
         }
 
-        userService.saveUser(userForm);
+        userService.saveUser(user);
 
-        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
+        securityService.autoLogin(user.getUsername(), user.getPasswordConfirm());
 
         return "redirect:/welcome";
     }
 
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
+    	System.out.println("DhukseLoginGet3333");
         if (error != null)
             model.addAttribute("error", "Your username and password is invalid.");
 
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
 
-        return "login";
+        return "/login";
     }
 
     @GetMapping({"/", "/welcome"})
     public String welcome(Model model) {
-        return "welcome";
+    	System.out.println("DhukseWelcomeGet");
+        return "/welcome";
     }
 
 }

@@ -30,9 +30,6 @@ public class BannerPhotoService {
         return bannerPhotoRepository.findById(id).orElse(null);
     }
 
-//    public BannerPhoto getBannerPhotoByName(String name) {
-//        return bannerPhotoRepository.findByName(name);
-//    }
 
     public String deleteBannerPhoto(int id) {
     	bannerPhotoRepository.deleteById(id);

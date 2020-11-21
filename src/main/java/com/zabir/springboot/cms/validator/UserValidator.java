@@ -9,6 +9,7 @@ import org.springframework.validation.Validator;
 import com.zabir.springboot.cms.models.User;
 import com.zabir.springboot.cms.services.UserService;
 
+@Component
 public class UserValidator implements Validator{
 	
 	@Autowired
@@ -18,26 +19,40 @@ public class UserValidator implements Validator{
     public boolean supports(Class<?> aClass) {
         return User.class.equals(aClass);
     }
-
+    
+    
     @Override
     public void validate(Object o, Errors errors) {
+    	System.out.println("Dhukse333");
         User user = (User) o;
-
+        System.out.println("Dhukse222");
+        
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-        if (user.getUsername().length() < 6 || user.getUsername().length() > 32) {
-            errors.rejectValue("username", "Size.userForm.username");
-        }
+        
+        
+        
+        System.out.println("Username is---- " + user.getUsername());
+        
         if (userService.findByUsername(user.getUsername()) != null) {
-            errors.rejectValue("username", "Duplicate.userForm.username");
+        	System.out.println("Username error dhukse");
+            errors.rejectValue("username", "Duplicate.user.username");
         }
-
+        
+        if (user.getUsername().length() < 3 || user.getUsername().length() > 32) {
+            errors.rejectValue("username", "Size.user.username");
+        }
+        
+        
+        System.out.println("Password is---- " + user.getPassword().toString());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-            errors.rejectValue("password", "Size.userForm.password");
+        if (user.getPassword().length() < 6 || user.getPassword().length() > 32) {
+        	System.out.println("Pass error dhukse");
+            errors.rejectValue("password", "Size.user.password");
         }
 
         if (!user.getPasswordConfirm().equals(user.getPassword())) {
-            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
+        	System.out.println("ComPass error dhukse");
+            errors.rejectValue("passwordConfirm", "Diff.user.passwordConfirm");
         }
     }
 
