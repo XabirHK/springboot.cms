@@ -56,6 +56,20 @@ public class AuthController {
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Validated LoginRequest loginRequest) {
+		System.out.println("User name is - " +  loginRequest.getUsername());
+		System.out.println("User pass is - " +  loginRequest.getPassword());
+		if (loginRequest.getUsername() == null ) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Username can not be empty"));
+		}
+		
+		
+		if (loginRequest.getPassword() == null ) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Password can not be empty"));
+		}
 
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -77,6 +91,31 @@ public class AuthController {
 
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Validated SignupRequest signUpRequest) {
+		
+		if (signUpRequest.getUsername() == null ) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Username can not be empty"));
+		}
+		
+		if (signUpRequest.getEmail() == null ) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Email can not be empty"));
+		}
+		
+		if (signUpRequest.getPassword() == null ) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Password can not be empty"));
+		}
+
+		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Email is already in use!"));
+		}
+		
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()
@@ -88,7 +127,12 @@ public class AuthController {
 					.badRequest()
 					.body(new MessageResponse("Error: Email is already in use!"));
 		}
-
+		
+		System.out.println("User name is - " +  signUpRequest.getUsername());
+		System.out.println("User email is - " +  signUpRequest.getEmail());
+		System.out.println("User pass is - " +  signUpRequest.getPassword());
+		
+		
 		// Create new user's account
 		User user = new User(signUpRequest.getUsername(), 
 							 signUpRequest.getEmail(),
