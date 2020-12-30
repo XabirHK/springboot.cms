@@ -41,11 +41,13 @@ public class CategoryService {
     
     
     public Category updateCategory(Category Category) {
-        Category existingCategory = categoryRepository.findById(Category.getId()).orElse(null);
+        Category existingCategory = categoryRepository.findById(Category.getCategoryId()).orElse(null);
 
         existingCategory.setTitle(Category.getTitle());
         existingCategory.setParent(Category.getParent());
         existingCategory.setPosition(Category.getPosition());
+        existingCategory.setStatus(Category.getStatus());
+        existingCategory.setLanguage(Category.getLanguage());
        
         return categoryRepository.save(existingCategory);
     }

@@ -42,7 +42,7 @@ public class AuthController {
 	@Autowired
 	AuthenticationManager authenticationManager;
 
-	@Autowired
+	@Autowired 
 	UserRepository userRepository;
 
 	@Autowired
@@ -56,8 +56,6 @@ public class AuthController {
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Validated LoginRequest loginRequest) {
-		System.out.println("User name is - " +  loginRequest.getUsername());
-		System.out.println("User pass is - " +  loginRequest.getPassword());
 		if (loginRequest.getUsername() == null ) {
 			return ResponseEntity
 					.badRequest()
