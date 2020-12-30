@@ -9,17 +9,19 @@ import javax.persistence.Id;
 public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Integer category_id;
 	private String title;
 	private Integer parent;
 	private String position;
+	private String status;
+	private Integer language;
 	
-	public Integer getId() {
-		return id;
+	public Integer getCategoryId() {
+		return category_id;
 	}
 	
-	public void setId(Integer id) {
-	    this.id = id;
+	public void setCategoryId(Integer category_id) {
+	    this.category_id = category_id;
 	}
 	
 	public String getTitle() {
@@ -44,6 +46,22 @@ public class Category {
 	
 	public void setPosition(String position) {
 	    this.position = position;
+	}
+	
+	public String getStatus() {
+	    return status;
+	}
+	
+	public void setStatus(String status) {
+	    this.status = status;
+	}
+	
+	public Integer getLanguage() {
+	    return language;
+	}
+	
+	public void setLanguage(Integer language) {
+	    this.language = language;
 	}
 
 }
