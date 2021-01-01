@@ -44,6 +44,7 @@ public class CategoryService {
         Category existingCategory = categoryRepository.findById(Category.getCategoryId()).orElse(null);
 
         existingCategory.setTitle(Category.getTitle());
+        existingCategory.setDescription(Category.getDescription());
         existingCategory.setParent(Category.getParent());
         existingCategory.setPosition(Category.getPosition());
         existingCategory.setStatus(Category.getStatus());
