@@ -31,7 +31,7 @@ public class CategoryController {
         return categoryService.getCategorys();
     }
 
-    @GetMapping("/categoy/{id}")
+    @GetMapping("/category/{id}")
     public Category findCategoryById(@PathVariable int id) {
         return categoryService.getCategoryById(id);
     }

@@ -17,7 +17,14 @@ public class Post {
 	@Column(columnDefinition = "text")
 	private String description;
 	private Integer category;
-	private String picture;
+	@Column(length = 20)
+	private String status;
+	@Column(length = 2)
+	private Integer language;
+	
+	@Column(columnDefinition = "text")
+	private String tags;
+	private String primaryPicture;
 	
 	public Integer getId() {
 		return id;
@@ -51,12 +58,36 @@ public class Post {
 	    this.category = category;
 	}
 	
-	public String getPicture() {
-	    return picture;
+	public String getStatus() {
+	    return status;
 	}
 	
-	public void setPicture(String picture) {
-	    this.picture = picture;
+	public void setStatus(String status) {
+	    this.status = status;
+	}
+	
+	public String getTags() {
+	    return tags;
+	}
+	
+	public void setTags(String tags) {
+	    this.tags = tags;
+	}
+	
+	public Integer getLanguage() {
+	    return language;
+	}
+	
+	public void setLanguage(Integer language) {
+	    this.language = language;
+	}
+
+	public String getPrimaryPicture() {
+		return primaryPicture;
+	}
+
+	public void setPrimaryPicture(String primaryPicture) {
+		this.primaryPicture = primaryPicture;
 	}
 	
 	

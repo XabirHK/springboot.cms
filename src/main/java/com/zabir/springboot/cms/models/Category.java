@@ -1,5 +1,6 @@
 package com.zabir.springboot.cms.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,19 +10,22 @@ import javax.persistence.Id;
 public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer category_id;
+	private Integer id;
 	private String title;
 	private Integer parent;
 	private String position;
+	@Column(length = 20)
 	private String status;
+	@Column(length = 2)
 	private Integer language;
+	private String description;
 	
 	public Integer getCategoryId() {
-		return category_id;
+		return id;
 	}
 	
-	public void setCategoryId(Integer category_id) {
-	    this.category_id = category_id;
+	public void setCategoryId(Integer id) {
+	    this.id = id;
 	}
 	
 	public String getTitle() {
@@ -62,6 +66,14 @@ public class Category {
 	
 	public void setLanguage(Integer language) {
 	    this.language = language;
+	}
+	
+	public String getDescription() {
+	    return description;
+	}
+	
+	public void setDescription(String description) {
+	    this.description = description;
 	}
 
 }

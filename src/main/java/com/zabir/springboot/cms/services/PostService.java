@@ -46,7 +46,9 @@ public class PostService {
         existingPost.setTitle(Post.getTitle());
         existingPost.setDescription(Post.getDescription());
         existingPost.setCategory(Post.getCategory());
-        existingPost.setPicture(Post.getPicture());
+        existingPost.setTags(Post.getTags());
+        existingPost.setLanguage(Post.getLanguage());
+        existingPost.setPrimaryPicture(Post.getPrimaryPicture());
        
         return postRepository.save(existingPost);
     }

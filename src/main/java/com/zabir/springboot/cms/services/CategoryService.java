@@ -15,7 +15,7 @@ public class CategoryService {
 	private CategoryRepository categoryRepository;
 	
 	public Category saveCategory(Category category) {
-		 return categoryRepository.save(category);
+		return categoryRepository.save(category);
     }
 
     public List<Category> saveCategorys(List<Category> Categorys) {
@@ -41,9 +41,11 @@ public class CategoryService {
     
     
     public Category updateCategory(Category Category) {
+    	
         Category existingCategory = categoryRepository.findById(Category.getCategoryId()).orElse(null);
-
+        
         existingCategory.setTitle(Category.getTitle());
+        existingCategory.setDescription(Category.getDescription());
         existingCategory.setParent(Category.getParent());
         existingCategory.setPosition(Category.getPosition());
         existingCategory.setStatus(Category.getStatus());
