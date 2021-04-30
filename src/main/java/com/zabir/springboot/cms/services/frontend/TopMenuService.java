@@ -16,6 +16,10 @@ public class TopMenuService {
     public List<Category> getAllItems() {
         return categoryRepository.findAll();
     }
+    
+    public List<Category> getTopMenuItems(String position, Integer status, Integer language) {
+        return categoryRepository.findByPositionAndStatusAndLanguage(position, status, language);
+    }
 
 	public Category getItemById(int id) {
 		return categoryRepository.findById(id).orElse(null);

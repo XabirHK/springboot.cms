@@ -20,8 +20,8 @@ public class TopMenuController {
 	private TopMenuService topMenuService;
 	
     @GetMapping("/menu")
-    public List<Category> findAllItems() {
-        return topMenuService.getAllItems();
+    public List<Category> findTopMenuItems() {
+        return topMenuService.getTopMenuItems("header", 1, 1);
     }
 
     @GetMapping("/menu/{id}")

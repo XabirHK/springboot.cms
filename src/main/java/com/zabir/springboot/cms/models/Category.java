@@ -24,8 +24,8 @@ public class Category {
 	private String description;
 	private Integer parent;
 	private String position;
-	@Column(length = 20)
-	private String status;
+	@Column(length = 2)
+	private Integer status;
 	@Column(length = 2)
 	private Integer language;
 	
@@ -67,11 +67,11 @@ public class Category {
 	    this.position = position;
 	}
 	
-	public String getStatus() {
+	public Integer getStatus() {
 	    return status;
 	}
 	
-	public void setStatus(String status) {
+	public void setStatus(Integer status) {
 	    this.status = status;
 	}
 	
