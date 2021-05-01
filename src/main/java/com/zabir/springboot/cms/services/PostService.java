@@ -29,6 +29,10 @@ public class PostService {
     public Post getPostById(int id) {
         return postRepository.findById(id).orElse(null);
     }
+    
+    public List<Post> getPostByCategoryId(Integer id) {
+        return postRepository.findByCategory(id);
+    }
 
 //    public Post getPostByName(String name) {
 //        return postRepository.findByName(name);

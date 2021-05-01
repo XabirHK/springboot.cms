@@ -1,10 +1,14 @@
 package com.zabir.springboot.cms.models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.websocket.Decoder.Text;
 
 @Entity
@@ -24,7 +28,21 @@ public class Post {
 	
 	@Column(columnDefinition = "text")
 	private String tags;
+	@Column(columnDefinition = "text")
 	private String primaryPicture;
+	
+	private Date created;
+	private Date updated;
+
+	@PrePersist
+	protected void onCreate() {
+		created = new Date();
+	}
+	
+	@PreUpdate
+	protected void onUpdate() {
+	  updated = new Date();
+	}
 	
 	public Integer getId() {
 		return id;
