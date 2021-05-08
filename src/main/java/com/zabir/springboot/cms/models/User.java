@@ -21,9 +21,6 @@ public class User {
 	
 	@ManyToMany
 	private Set<Role> roles = new HashSet<>();
-	
-	public User() {
-	}
 
 	public User(String username, String email, String password) {
 		this.username = username;
