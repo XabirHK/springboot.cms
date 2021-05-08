@@ -29,9 +29,9 @@ public class Category {
 	@Column(length = 2)
 	private Integer language;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name = "parent") //Implement self-association based on the parent menu ID (internal is one-to-many)
-	private List<Category> items;
+//	@OneToMany(cascade=CascadeType.ALL)
+//    @JoinColumn(name = "parent") //Implement self-association based on the parent menu ID (internal is one-to-many)
+//	private List<Category> items;
 	
 	public Integer getCategoryId() {
 		return id;
