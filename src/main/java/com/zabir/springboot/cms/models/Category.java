@@ -1,19 +1,10 @@
 package com.zabir.springboot.cms.models;
 
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Category {
@@ -29,9 +20,6 @@ public class Category {
 	@Column(length = 2)
 	private Integer language;
 	
-//	@OneToMany(cascade=CascadeType.ALL)
-//    @JoinColumn(name = "parent") //Implement self-association based on the parent menu ID (internal is one-to-many)
-//	private List<Category> items;
 	
 	public Integer getCategoryId() {
 		return id;
