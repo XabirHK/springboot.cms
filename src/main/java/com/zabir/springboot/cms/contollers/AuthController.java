@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.zabir.springboot.cms.models.ERole;
 import com.zabir.springboot.cms.models.Role;
-import com.zabir.springboot.cms.models.User;
+import com.zabir.springboot.cms.models.AdminUser;
 import com.zabir.springboot.cms.payload.request.LoginRequest;
 import com.zabir.springboot.cms.payload.request.SignupRequest;
 import com.zabir.springboot.cms.payload.response.JwtResponse;
@@ -132,7 +132,7 @@ public class AuthController {
 		
 		
 		// Create new user's account
-		User user = new User(signUpRequest.getUsername(), 
+		AdminUser user = new AdminUser(signUpRequest.getUsername(), 
 							 signUpRequest.getEmail(),
 							 encoder.encode(signUpRequest.getPassword()));
 

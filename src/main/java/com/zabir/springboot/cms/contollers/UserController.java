@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-import com.zabir.springboot.cms.models.User;
+import com.zabir.springboot.cms.models.AdminUser;
 import com.zabir.springboot.cms.services.UserService;
 
 @RestController
@@ -16,7 +16,7 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("user/add")
-    public User addUser(User user) {
+    public AdminUser addUser(AdminUser user) {
         return userService.saveUser(user);
 		//return "Add user";
     }
@@ -27,12 +27,12 @@ public class UserController {
 //    }
 
     @GetMapping("/users")
-    public List<User> findAllUsers() {
+    public List<AdminUser> findAllUsers() {
         return userService.getUsers();
     }
 
     @GetMapping("/user/{id}")
-    public User findUserById(@PathVariable int id) {
+    public AdminUser findUserById(@PathVariable int id) {
         return userService.getUserById(id);
     }
 
@@ -42,7 +42,7 @@ public class UserController {
 //    }
 
     @PutMapping("user/update")
-    public User updateUser(User user) {
+    public AdminUser updateUser(AdminUser user) {
         return userService.updateUser(user);
     }
 

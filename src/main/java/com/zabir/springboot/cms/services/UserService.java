@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zabir.springboot.cms.models.User;
+import com.zabir.springboot.cms.models.AdminUser;
 import com.zabir.springboot.cms.repositories.UserRepository;
 
 @Service
@@ -13,19 +13,19 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public User saveUser(User user) {
+	public AdminUser saveUser(AdminUser user) {
 		 return userRepository.save(user);
     }
 
-    public List<User> saveUsers(List<User> Users) {
+    public List<AdminUser> saveUsers(List<AdminUser> Users) {
         return userRepository.saveAll(Users);
     }
 
-    public List<User> getUsers() {
+    public List<AdminUser> getUsers() {
         return userRepository.findAll();
     }
 
-    public User getUserById(int id) {
+    public AdminUser getUserById(int id) {
         return userRepository.findById(id).orElse(null);
     }
 
@@ -39,8 +39,8 @@ public class UserService {
     }
     
     
-    public User updateUser(User User) {
-        User existingUser = userRepository.findById(User.getId()).orElse(null);
+    public AdminUser updateUser(AdminUser User) {
+        AdminUser existingUser = userRepository.findById(User.getId()).orElse(null);
         
         //return User.getName();
         

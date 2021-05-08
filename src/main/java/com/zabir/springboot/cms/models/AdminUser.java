@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 
 
 @Entity
-public class User {
+public class AdminUser {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -22,7 +22,7 @@ public class User {
 	@ManyToMany
 	private Set<Role> roles = new HashSet<>();
 
-	public User(String username, String email, String password) {
+	public AdminUser(String username, String email, String password) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
