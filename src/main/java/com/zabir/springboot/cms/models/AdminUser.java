@@ -21,6 +21,10 @@ public class AdminUser {
 	
 	@ManyToMany
 	private Set<Role> roles = new HashSet<>();
+	
+	public AdminUser() {
+		
+	}
 
 	public AdminUser(String username, String email, String password) {
 		this.username = username;
