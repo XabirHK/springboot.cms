@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
 public interface PostRepository extends  JpaRepository <Post, Integer>{
-	List<Post> findTop3ByOrderByCreatedDesc();
+	List<Post> findTop4ByOrderByCreatedDesc();
 
 	List<Post> findByCategory(Integer category);
 	

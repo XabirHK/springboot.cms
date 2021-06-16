@@ -20,7 +20,7 @@ public class HomePageService {
 	
 	//Date created, Integer status, Integer language
     public List<Post> getHighLitedPosts() {
-        return postRepository.findTop3ByOrderByCreatedDesc();
+        return postRepository.findTop4ByOrderByCreatedDesc();
     }
 
 }
