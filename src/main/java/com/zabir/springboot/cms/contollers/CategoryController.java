@@ -21,10 +21,6 @@ public class CategoryController {
         return categoryService.saveCategory(category);
     }
 
-//    @PostMapping("/category/addall")
-//    public List<Category> addCategorys(@RequestBody List<Category> categorys) {
-//        return categoryService.saveCategorys(categorys);
-//    }
 
     @GetMapping("/categories")
     public List<Category> findAllCategorys() {
@@ -35,11 +31,6 @@ public class CategoryController {
     public Category findCategoryById(@PathVariable int id) {
         return categoryService.getCategoryById(id);
     }
-
-//    @GetMapping("/category/{name}")
-//    public Category findCategoryByName(@PathVariable String name) {
-//        return categoryService.getCategoryByName(name);
-//    }
 
     @PutMapping("category/update")
     public Category updateCategory(Category category) {

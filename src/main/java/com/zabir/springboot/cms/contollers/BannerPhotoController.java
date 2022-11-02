@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import com.zabir.springboot.cms.models.BannerPhoto;
 import com.zabir.springboot.cms.services.BannerPhotoService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+@RequestMapping("/api/v1")
 public class BannerPhotoController {
 	
 	@Autowired
@@ -19,11 +21,6 @@ public class BannerPhotoController {
         return bannerPhotoService.saveBannerPhoto(bannerPhoto);
     }
 
-//    @BannerPhotoMapping("/bannerPhoto/addall")
-//    public List<BannerPhoto> addBannerPhotos(@RequestBody List<BannerPhoto> bannerPhotos) {
-//        return bannerPhotoService.saveBannerPhotos(bannerPhotos);
-//    }
-
     @GetMapping("/banners")
     public List<BannerPhoto> findAllBannerPhotos() {
         return bannerPhotoService.getBannerPhotos();
@@ -33,11 +30,6 @@ public class BannerPhotoController {
     public BannerPhoto findBannerPhotoById(@PathVariable int id) {
         return bannerPhotoService.getBannerPhotoById(id);
     }
-
-//    @GetMapping("/bannerPhoto/{name}")
-//    public BannerPhoto findBannerPhotoByName(@PathVariable String name) {
-//        return bannerPhotoService.getBannerPhotoByName(name);
-//    }
 
     @PutMapping("banner/update")
     public BannerPhoto updateBannerPhoto(BannerPhoto bannerPhoto) {

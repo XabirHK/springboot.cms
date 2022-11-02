@@ -6,12 +6,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.zabir.springboot.cms.services.FilesStorageService;
+import com.zabir.springboot.cms.repositories.FilesStorageRepository;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner{
 	@Resource
-	FilesStorageService storageService;
+	FilesStorageRepository storageService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -19,8 +19,8 @@ public class Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		//storageService.deleteAll();
-		//storageService.init();
+		storageService.deleteAll();
+		storageService.init();
 	}
 
 }
